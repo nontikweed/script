@@ -25,21 +25,25 @@ if [ ! -d "$HOME/.nvm" ]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 fi
 
-# Load NVM into the shell
+# Load NVM into the script environment
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads bash_completion
 
-# Install Node.js LTS using NVM
+# Verify NVM is loaded, then install Node.js LTS
+if ! command -v nvm &> /dev/null; then
+    echo "Error: NVM failed to load. Please check your installation."
+    exit 1
+fi
 if ! command -v node &> /dev/null; then
     echo "Installing Node.js LTS..."
     nvm install --lts
 fi
 
-# Install required NPM packages
+# Install required NPM packages globally
 npm install -g random-useragent axios
 
-# Clone repository and setup bot
+# Clone the repository and set up the bot
 if [ ! -d "depinedBot" ]; then
     echo "Cloning repository..."
     git clone https://github.com/Zlkcyber/depinedBot.git
