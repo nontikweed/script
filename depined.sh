@@ -20,10 +20,19 @@ install_if_missing screen
 install_if_missing curl
 
 # Install NVM and Node.js (LTS)
-if ! command -v nvm &> /dev/null; then
+if [ ! -d "$HOME/.nvm" ]; then
     echo "Installing NVM..."
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-    source ~/.bashrc
+fi
+
+# Load NVM into the shell
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Install Node.js LTS using NVM
+if ! command -v node &> /dev/null; then
+    echo "Installing Node.js LTS..."
     nvm install --lts
 fi
 
