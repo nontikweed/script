@@ -52,7 +52,7 @@ cd depinedBot || exit
 npm install
 
 # Add token file
-echo "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsdmFyZXpraW5nNjVAZ21haWwuY29tIiwiaWQiOiJmM2IxMDM0OC1iMjdiLTQ4NjgtYWNhNy02YTVjNjBkM2IxZjAifQ.OhmXWVlZgOc6W3Wgmu_jWy7lTbHpdMPhWq9lxgBt4ig" > token.txt
+echo "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsdmFyZXpraW5nNjVAZ21haWwuY29tIiwiaWQiOiJmM2IxMDM0OC1iMjdiLTQ4NjgtYWNhNy02YTVjNjBkM2IxZjAifQ.OhmXWVlZgOc6W3Wgmu_jWy7lTbHpdMPhWq9lxgBt4ig" > depinedBot/token.txt
 
 # Create or attach to a screen session named "depined" and run the bot
 echo "Starting the bot in a new 'depined' screen session..."
